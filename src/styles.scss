@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    background-color: #e8e8e8;
+}
+
+input[type="text"] {
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    color: #666666;
+    font-size: 14px;
+    height: 30px;
+    padding-left: 10px;
+    outline: none;
+    width: 100%;
+}
+
+select {
+    background-color: white;
+    border: solid 1px #ccc;
+    color: #666666;
+    font-size: 14px;
+    height: 30px;
+    padding-left: 10px;
+    outline: none;
+    width: 100%;
+}

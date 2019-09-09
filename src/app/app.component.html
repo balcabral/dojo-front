@@ -1,0 +1,79 @@
+<!-- DOJO Parte 3 -->
+<div *ngIf="loading">Carregando...</div>
+
+<!-- DOJO Parte 1 / DOJO Parte 2 [(ngModel)] -->
+<div class="container" *ngIf="!loading">
+  <div class="row">
+    <div class="col-12 text-center">
+      Ficha Técnica
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-3 col-6">
+      Nome
+      <input type="text" [(ngModel)]="ficha.nome">
+    </div>
+    <div class="col-xl-3 col-6">
+      Ano de nascimento
+      <input type="text" [(ngModel)]="ficha.ano">
+    </div>
+     <div class="col-xl-3 col-6">
+       Altura
+      <input type="text" [(ngModel)]="ficha.altura">
+    </div>
+    <div class="col-xl-3 col-6">
+      Peso
+      <input type="text" [(ngModel)]="ficha.peso">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-3 col-6">
+      Posição 1
+      <select [(ngModel)]="ficha.posicao1">
+        <option *ngFor="let posicao of getPosicoes" [value]="posicao.posicao">{{posicao.posicao}}</option>
+      </select>
+    </div>
+    <div class="col-xl-3 col-6">
+      Posição 2
+      <select [(ngModel)]="ficha.posicao2">
+        <option *ngFor="let posicao of getPosicoes" [value]="posicao.posicao">{{posicao.posicao}}</option>
+      </select>
+    </div>
+    <div class="col-xl-3 col-6">
+      Time 1
+      <select [(ngModel)]="ficha.time1">
+        <option *ngFor="let time of getTimes" [value]="time.time">{{time.time}}</option>
+      </select>
+    </div>
+    <div class="col-xl-3 col-6">
+      Time 2
+      <select [(ngModel)]="ficha.time2">
+        <option *ngFor="let time of getTimes" [value]="time.time">{{time.time}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <button class="btn btn-primary" (click)="cadastrar()">Cadastrar</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <hr>
+    </div>
+  </div>
+
+  <!-- DOJO Parte 4 -->
+  <div *ngIf="showSummary">
+    <div class="container__summary" *ngFor="let ficha of fichaLista">
+      <div class="item">{{ficha.nome}}</div>
+      <div class="item">{{ficha.ano}}</div>
+      <div class="item">{{ficha.altura}}</div>
+      <div class="item">{{ficha.peso}}</div>
+      <div class="item">{{ficha.posicao1}}</div>
+      <div class="item">{{ficha.posicao2}}</div>
+      <div class="item" [ngClass]="{ 'is-brasil': ficha.time1 == 'Brasil' }">{{ficha.time1}}</div>
+      <div class="item" [ngClass]="{ 'is-brasil': ficha.time2 == 'Brasil' }">{{ficha.time2}}</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+.container {
+    // DOJO Parte 1
+    background-color: white;
+    border-radius: 5px;
+    margin-top: 40px;
+    padding: 15px;
+    .row {
+        color: #666666;
+        font-size: 14px;
+        padding: 10px;
+        div {
+            padding-bottom: 15px;
+        }
+    }
+    // DOJO Parte 4
+    &__summary {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        .item:first-of-type {
+            color: blue;
+        }
+        .item {
+            flex: 1;
+            margin: 5px;
+            border: solid 1px #efefef;
+            text-align: center;
+        }
+        .is-brasil {
+            border: solid 1px blue;
+        }
+    }
+}
