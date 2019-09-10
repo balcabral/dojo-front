@@ -2,7 +2,7 @@ DOJO FrontEnd
 
 Desafio:
 
-Nosso desafio consiste em criar um sistema para cadastro de jogador em um time de futebol. Os campos para cadastrados serão nome, ano de nascimento, altura, peso, 2 posições e 2 times. 
+Nosso desafio consiste em criar um sistema para cadastro de jogador em um time de futebol. Os campos para cadastro serão nome, ano de nascimento, altura, peso, 2 posições e 2 times. 
 
 Campos obrigatórios: 
 	- Nome
@@ -11,7 +11,7 @@ Campos obrigatórios:
 
 A lista de jogadores cadastrados deverão seguir as seguintes regras:
 	- O campo nome (primeiro item da lista), sempre deverá vir com a cor azul.
-	- Se o time escolhido (time 1 ou time 2) for o Brasil, a borda desta campo deverá ser azul.
+	- Se o time escolhido (time 1 ou time 2) for o Brasil, a borda deste campo deverá ser azul.
 	
 
 Parte 1: Criar html e css dos inputs usando grid do bootstrap onde serão exibidos 4 campos por linha no tamanho xl, qualquer tamanho menor que xl serão 2 campos por linha. As divs do título e do botão sempre ocuparão o espaço total.
