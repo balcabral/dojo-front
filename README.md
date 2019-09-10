@@ -1,27 +1,27 @@
-# DojoFront
+DOJO FrontEnd
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
+Desafio:
 
-## Development server
+Nosso desafio consiste em criar um sistema para cadastro de jogador em um time de futebol. Os campos para cadastrados serão nome, ano de nascimento, altura, peso, 2 posições e 2 times. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Campos obrigatórios: 
+	- Nome
+	- Pelo menos uma posição
+	- Pelo menos um time
 
-## Code scaffolding
+A lista de jogadores cadastrados deverão seguir as seguintes regras:
+	- O campo nome (primeiro item da lista), sempre deverá vir com a cor azul.
+	- Se o time escolhido (time 1 ou time 2) for o Brasil, a borda desta campo deverá ser azul.
+	
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Parte 1: Criar html e css dos inputs usando grid do bootstrap onde serão exibidos 4 campos por linha no tamanho xl, qualquer tamanho menor que xl serão 2 campos por linha. As divs do título e do botão sempre ocuparão o espaço total.
 
-## Build
+Parte 2: Criar o two way data binding do objeto FichaModel e mostrar na mesma tela conforme vai digitando nos inputs.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Parte 3: Criar o método getForkJoin que baterá nas 2 services ja criadas, implementar o loading que só sumirá quando as 2 apis terminarem e chamar o método no onInit.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Parte 4: 
+	- Criar html e css das propriedades bindadas usando flex de modo que um item fique do lado do outro ocupando todo o espaço da linha. 
+	- Ao clicar em Cadastrar, deveremos inserir o item na lista fichaLista. Essa lista que deverá ser exibida na tela. Sempre que um item for inserido nela deveremos bondar um novo objeto.
+	- Para cadastrar deveremos ter um método que valida se o nome, pelo menos uma posição e pelo menos um time foram preenchidos.
+	- Utilizar sass/bem nas classes e o primeiro item (nome) sempre deve vir com a cor da fonte azul (seletor por posição).
