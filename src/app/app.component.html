@@ -1,7 +1,5 @@
-<!-- DOJO Parte 3 -->
 <div *ngIf="loading">Carregando...</div>
 
-<!-- DOJO Parte 1 / DOJO Parte 2 [(ngModel)] -->
 <div class="container" *ngIf="!loading">
   <div class="row">
     <div class="col-12 text-center">
@@ -63,7 +61,6 @@
     </div>
   </div>
 
-  <!-- DOJO Parte 4 -->
   <div *ngIf="showSummary">
     <div class="container__summary" *ngFor="let ficha of fichaLista">
       <div class="item">{{ficha.nome}}</div>

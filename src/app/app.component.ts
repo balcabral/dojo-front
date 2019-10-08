@@ -26,7 +26,6 @@ export class AppComponent {
   public showSummary = false;
   public getTimes: TimeModel[] = [];
   public getPosicoes: PosicaoModel[] = [];
-  // DOJO Parte 2
   public ficha = new FichaModel();
   public fichaLista: FichaModel[] = [];
 
@@ -35,7 +34,6 @@ export class AppComponent {
     private posicaoService: PosicaoService) { }
 
   ngOnInit() {
-    // DOJO Parte 3
     this.getForkJoin();
   }
 
@@ -47,7 +45,6 @@ export class AppComponent {
     }
   }
 
-  // DOJO Parte 3
   private getForkJoin() {
     const getTime = this.timeService.getTime();
     const getPosicao = this.posicaoService.getPosicao();
@@ -64,7 +61,6 @@ export class AppComponent {
       });
   }
 
-  // DOJO Parte 4
   private validaDados(): boolean {
     return this.ficha.Nome !== undefined && 
           (this.ficha.Posicao1 !== undefined || this.ficha.Posicao2 !== undefined) && 

@@ -1,12 +1,21 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { PosicaoModel } from './models/posicao.model';
+import { TimeModel } from './models/time.model';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        FormsModule,
+        HttpClientTestingModule
       ],
       declarations: [
         AppComponent
@@ -14,22 +23,40 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
 
   it(`should have as title 'dojo-front'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('dojo-front');
   });
 
-  it('should render title in a h1 tag', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to dojo-front!');
+  it(`validaDados deve retornar true`, () => {
+    const posicao = new PosicaoModel();
+    posicao.Id = 1;
+    posicao.Posicao = 'Goleiro';
+
+    const time = new TimeModel();
+    time.Id = 1;
+    time.Time = 'Brasil';
+  
+    component.ficha.Nome = 'Rafael';
+    component.ficha.Posicao1 = posicao;
+    component.ficha.Time1 = time;
+    component.cadastrar();
+    expect(fixture.componentInstance.showSummary).toBeTruthy();
+  });
+
+  it(`validaDados deve retornar false`, () => {
+    component.cadastrar();
+    expect(fixture.componentInstance.showSummary).toBeFalsy();
   });
 });
