@@ -7,7 +7,20 @@ import { PosicaoModel } from './models/posicao.model';
 import { TimeModel } from './models/time.model';
 import { TimeService } from './services/time.service';
 import { PosicaoService } from './services/posicao.service';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
+
+class PosicaoServiceMock  {
+  public getPosicao(): Observable<PosicaoModel[]> {
+    const posicao = new PosicaoModel();
+    posicao.Id = 1;
+    posicao.Posicao = 'Atacante';
+
+    const posicaoResponse: PosicaoModel[] = [];
+    posicaoResponse.push(posicao);
+
+    return of(posicaoResponse);
+  }
+}
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -19,6 +32,9 @@ describe('AppComponent', () => {
         RouterTestingModule,
         FormsModule,
         HttpClientTestingModule
+      ],
+      providers: [
+        { provide: PosicaoService, useClass: PosicaoServiceMock },
       ],
       declarations: [
         AppComponent
@@ -61,8 +77,8 @@ describe('AppComponent', () => {
     expect(fixture.componentInstance.showSummary).toBeFalsy();
   });
 
-  it('getForkJoin deve retornan time e posição com sucesso', fakeAsync(inject([TimeService, PosicaoService],
-    (timeService: TimeService, posicaoService: PosicaoService) => {
+  it('getForkJoin deve retornan time e posição com sucesso', fakeAsync(inject([TimeService],
+    (timeService: TimeService) => {
     const time = new TimeModel();
     time.Id = 1;
     time.Time = 'Brasil';
@@ -78,7 +94,6 @@ describe('AppComponent', () => {
     posicaoResponse.push(posicao);
 
     spyOn(timeService, 'getTime').and.returnValue(of(timeResponse));
-    spyOn(posicaoService, 'getPosicao').and.returnValue(of(posicaoResponse));
     
     component.getForkJoin();
 
@@ -88,3 +103,4 @@ describe('AppComponent', () => {
     expect(component.getPosicoes[0].Posicao).toEqual(posicaoResponse[0].Posicao);
   })));
 });
+
