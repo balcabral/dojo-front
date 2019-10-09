@@ -45,7 +45,7 @@ export class AppComponent {
     }
   }
 
-  private getForkJoin() {
+  public getForkJoin() {
     const getTime = this.timeService.getTime();
     const getPosicao = this.posicaoService.getPosicao();
 
